@@ -24,4 +24,4 @@
 .env
 
 # Ignore the search layout
-layouts/search.html.erb
+/tmp/views/layouts/search.html.erb
