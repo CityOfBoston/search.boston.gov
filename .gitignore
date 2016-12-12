@@ -13,7 +13,9 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
-/tmp/*
+/tmp/cache
+/tmp/sockets
+/tmp/pids
 !/log/.keep
 !/tmp/.keep
 
@@ -22,4 +24,4 @@
 .env
 
 # Ignore the search layout
-search.html.erb
+layouts/search.html.erb
