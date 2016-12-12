@@ -30,7 +30,6 @@ gem 'swiftype'
 
 # Let's use foreman
 gem 'foreman'
-
 gem 'pg'
 
 group :development, :test do

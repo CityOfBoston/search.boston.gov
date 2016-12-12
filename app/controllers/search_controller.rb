@@ -1,6 +1,4 @@
 class SearchController < ApplicationController
-  layout "search"
-
   def search
     if params[:q]
       client = Swiftype::Client.new
