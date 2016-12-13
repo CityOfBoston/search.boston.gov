@@ -1,6 +1,7 @@
 class SearchController < ApplicationController
+  prepend_view_path Template.resolver
   layout 'search'
-  
+
   def search
     if params[:q]
       client = Swiftype::Client.new

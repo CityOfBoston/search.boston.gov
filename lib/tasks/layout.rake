@@ -4,7 +4,8 @@ namespace :layout do
 
     begin
       download = open('https://www.boston.gov/api/v1/layouts/search')
-      IO.copy_stream(download, Rails.root.join('public', 'search.html.erb'))
+      layout = Template.new(body: File.read(download), path: 'layouts/search', locale: 'en')
+      layout.save
     rescue => error
       puts error.inspect
     end
