@@ -16,11 +16,12 @@
         <% if @post_results.empty? %>
             <p>Sorry, there were no results for your query.</p>
         <% else %>
-          <ul class="g--ma0 g--p0">
+          <ul class="g--m0 g--p0">
             <% @post_results.each do |post_result| %>
-              <li class="g g--ma0 g--p0 n-li">
-                <%= link_to post_result['url'], class: 'n-li-b n-li-b--fw n-li--in' do %>
-                  <span class="n-li-t"><%= sanitize(post_result['title']) %></span>
+              <li class="n-li">
+                <%= link_to post_result['url'], class: 'n-li-b n-li-b--r n-li-b--fw n-li--in' do %>
+                  <div class="n-li-t g--8"><%= sanitize(post_result['title']) %></div>
+                  <div class="n-li-ty n-li-ty--r g--44"><%= type(post_result['type']) %></div>
                 <% end %>
               </li>
             <% end %>
