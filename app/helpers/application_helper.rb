@@ -19,6 +19,8 @@ module ApplicationHelper
       return "How To"
     when "program_initiative_profile"
       return "Program / Initiative"
+    when "public_notice"
+      return "Public Notice"
     else
       return type
     end
