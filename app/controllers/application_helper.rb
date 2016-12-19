@@ -7,7 +7,21 @@ module ApplicationHelper
     return Rails.configuration.content_types[type] || ''
   end
 
-  def pagination_url(params)
-    request.base_url + '?' + params.to_query
+  def pagination_url(page)
+    query = {}
+
+    if params[:q] && params[:q] != ''
+      query['q'] = params[:q]
+    end
+
+    if params[:facet] && params[:facet] != ''
+      query['facet'] = params[:facet]
+    end
+
+    if page
+      query['page'] = page
+    end
+
+    return request.base_url + '?' + query.to_query
   end
 end

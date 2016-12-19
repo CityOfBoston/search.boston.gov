@@ -1,6 +1,12 @@
-<div class="t--intro">Filter by Type</div>
-<% @facets.each do |facet| %>
-  <% if facet[0] && facet[0] != '' %>
-    <div><%= type(facet[0]) %> (<%= facet[1] %>)</div>
+<div class="t--intro m-b200">Filter by Type</div>
+<div class="m-b300">
+  <% @facets.each do |type| %>
+    <% if type[0] != '' && type(type[0]) != '' %>
+      <label class="cb" for="facet_<%= type[0] %>">
+        <%= check_box_tag 'facet[]', type[0], is_checked(@facets_selected, type[0]), class: 'cb-f', id: 'facet_' + type[0] %>
+        <span class="cb-l"><%= type(type[0]) %> (<%= type[1] %>)</span>
+      </label>
+    <% end %>
   <% end %>
-<% end %>
+</div>
+<button class="btn">Apply</button>

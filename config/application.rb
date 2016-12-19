@@ -13,16 +13,16 @@ module CobSearch
     # -- all .rb files in that directory are automatically loaded.
 
     config.content_types = {
-      'topic_page' => 'Topic',
-      'department_profile' => 'Department',
-      'article' => 'Article',
-      'event' => 'Event',
-      'post' => 'News',
+      'article' => 'Articles',
+      'department_profile' => 'Departments',
+      'documents' => 'Documents',
+      'event' => 'Events',
       'how_to' => 'How To',
+      'post' => 'News',
       'person_profile' => 'Person',
       'program_initiative_profile' => 'Program/Initiative',
       'public_notice' => 'Public Notice',
-      'documents' => 'Documents',
+      'topic_page' => 'Topic',
     }
   end
 end

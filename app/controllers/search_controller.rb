@@ -5,10 +5,18 @@ class SearchController < ApplicationController
   def search
     if params[:q] && params[:q] != ''
       client = Swiftype::Client.new
-      @results = client.search(ENV['SWIFTYPE_ENGINE_SLUG'], params[:q], {:per_page => '10', :page => params[:page] || 1, :facets => {'page' => ['type']}})
+
+      @facets_selected = params[:facet] || []
+
+      @results = client.search(ENV['SWIFTYPE_ENGINE_SLUG'], params[:q], {
+        :per_page => '10',
+        :filters => {'page' => {:type => @facets_selected}},
+        :page => params[:page] || 1,
+        :facets => {'page' => ['type']}}
+      )
+
       @facets = @results.info['page']['facets']['type']
 
-      puts @facets
       @post_results = @results['page']
       @page_range = get_page_range(@results)
     end
