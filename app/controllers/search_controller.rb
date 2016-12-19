@@ -3,10 +3,12 @@ class SearchController < ApplicationController
   layout 'search'
 
   def search
-    puts params[:q]
     if params[:q] && params[:q] != ''
       client = Swiftype::Client.new
-      @results = client.search(ENV['SWIFTYPE_ENGINE_SLUG'], params[:q], {:per_page => '10', :page => params[:page] || 1})
+      @results = client.search(ENV['SWIFTYPE_ENGINE_SLUG'], params[:q], {:per_page => '10', :page => params[:page] || 1, :facets => {'page' => ['type']}})
+      @facets = @results.info['page']['facets']['type']
+
+      puts @facets
       @post_results = @results['page']
       @page_range = get_page_range(@results)
     end

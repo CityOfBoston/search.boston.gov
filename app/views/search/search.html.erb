@@ -1,75 +1,45 @@
-<div class="b b--fw">
-  <div class="b-c">
-    <%= form_tag(request.base_url, method: "get", class: 'sf') do %>
-      <%= label_tag(:q, params[:q] ? "Search results:" : "Search:", class: 'sf-l') %>
-      <div class="sf-i">
-        <%= text_field_tag(:q, params[:q], class: 'sf-i-f') %>
-        <button class="sf-i-b">Search</button>
+<%= form_tag(request.base_url, method: "get") do %>
+  <div class="b b--fw">
+    <div class="b-c">
+      <div class="sf">
+        <%= label_tag(:q, @results ? "Search results:" : "Search:", class: 'sf-l') %>
+        <div class="sf-i">
+          <%= text_field_tag(:q, params[:q], class: 'sf-i-f') %>
+          <button class="sf-i-b">Search</button>
+        </div>
       </div>
-    <% end %>
-  </div>
-</div>
-<div class="b b--fw b--g">
-  <div class="b-c b-c--mh">
-    <% if @results %>
-      <% if @post_results %>
-        <% if @post_results.empty? %>
-            <p><strong>Sorry, your search didn't return any results on Boston.gov</strong></p>
-            <p>Please first make sure you spelled everything correctly. You can also:</p>
-            <ul>
-              <li>try different words</li>
-              <li>try more general words, or</li>
-              <li>try fewer words.</li>
-            </ul>
-        <% else %>
-          <ul class="g--m0 g--p0">
-            <% @post_results.each do |post_result| %>
-              <li class="n-li">
-                <%= link_to post_result['url'], class: 'n-li-b n-li-b--r n-li-b--fw n-li--in g g--mt0' do %>
-                  <div class="n-li-t g--8"><%= sanitize(post_result['title']) %></div>
-                  <div class="n-li-ty n-li-ty--r g--44"><%= type(post_result['type']) %></div>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-          <ul class="pg">
-            <li class="pg-li">
-              <% if @results.current_page > 1 %>
-                <%= link_to pagination_url(:q => params[:q], :page => @results.current_page - 1), class: 'pg-li-i pg-li-i--a pg-li-i--link' do %>
-                  <<span class="pg-li-i-h"> previous</span>
-                <% end %>
-              <% else %>
-                <span class="pg-li-i">< previous</span>
-              <% end %>
-            </li>
-            <% @page_range.each do |page| %>
-              <% if @results.current_page === page %>
-                <li class="pg-li"><%= link_to page, pagination_url(:q => params[:q], :page => page), class: 'pg-li-i pg-li-i--a pg-li-i--link' %></li>
-              <% else %>
-                <li class="pg-li"><%= link_to page, pagination_url(:q => params[:q], :page => page), class: 'pg-li-i pg-li-i--link' %></li>
-              <% end %>
-            <% end %>
-            <li class="pg-li">
-              <% if @results.num_pages > @results.current_page %>
-                <%= link_to pagination_url(:q => params[:q], :page => @results.current_page + 1), class: 'pg-li-i pg-li-i--a pg-li-i--link' do %>
-                  <span class="pg-li-i-h">next </span>>
-                <% end %>
-              <% else %>
-                <span class="pg-li-i">next ></span>
-              <% end %>
-            </li>
-          </ul>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-<div class="b">
-  <div class="b-c">
-    <div class="h2 tt-u ta-c p-h300">Can't find what you're looking for?</div>
-    <hr class="hr hr--sq m-h300 m-v500">
-    <div class="ta-c p-h200 t--intro">
-      Our 311 operators are available 24/7 to help point you in the right direction. Call 311, or 617-635-4500.
     </div>
   </div>
-</div>
+  <div class="b b--fw b--g">
+    <div class="b-c b-c--mh">
+      <% if @results %>
+        <% if @post_results %>
+          <div class="g g--mt0">
+            <div class="g--33">
+              <div class="co">
+                <input id="collapsible" type="checkbox" class="co-f d-n" aria-hidden=true>
+                <label for="collapsible" class="co-t">Filter</label>
+                <div class="co-b">
+                  <%= render partial: "facets" %>
+                </div>
+              </div>
+            </div>
+            <div class="g--9">
+              <%= render partial: "results" %>
+              <%= render partial: "pagination" %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="b">
+    <div class="b-c">
+      <div class="h2 tt-u ta-c p-h300">Can't find what you're looking for?</div>
+      <hr class="hr hr--sq m-h300 m-v500">
+      <div class="ta-c p-h200 t--intro">
+        Our 311 operators are available 24/7 to help point you in the right direction. Call 311, or 617-635-4500.
+      </div>
+    </div>
+  </div>
+<% end %>

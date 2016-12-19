@@ -1,0 +1,6 @@
+<div class="t--intro">Filter by Type</div>
+<% @facets.each do |facet| %>
+  <% if facet[0] && facet[0] != '' %>
+    <div><%= type(facet[0]) %> (<%= facet[1] %>)</div>
+  <% end %>
+<% end %>
