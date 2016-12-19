@@ -1,0 +1,29 @@
+<% if @results.num_pages > 1 %>
+  <ul class="pg">
+    <li class="pg-li">
+      <% if @results.current_page > 1 %>
+        <%= link_to pagination_url(:q => params[:q], :page => @results.current_page - 1), class: 'pg-li-i pg-li-i--a pg-li-i--link' do %>
+          <<span class="pg-li-i-h"> previous</span>
+        <% end %>
+      <% else %>
+        <span class="pg-li-i">< previous</span>
+      <% end %>
+    </li>
+    <% @page_range.each do |page| %>
+      <% if @results.current_page === page %>
+        <li class="pg-li"><%= link_to page, pagination_url(:q => params[:q], :page => page), class: 'pg-li-i pg-li-i--a pg-li-i--link' %></li>
+      <% else %>
+        <li class="pg-li"><%= link_to page, pagination_url(:q => params[:q], :page => page), class: 'pg-li-i pg-li-i--link' %></li>
+      <% end %>
+    <% end %>
+    <li class="pg-li">
+      <% if @results.num_pages > @results.current_page %>
+        <%= link_to pagination_url(:q => params[:q], :page => @results.current_page + 1), class: 'pg-li-i pg-li-i--a pg-li-i--link' do %>
+          <span class="pg-li-i-h">next </span>>
+        <% end %>
+      <% else %>
+        <span class="pg-li-i">next ></span>
+      <% end %>
+    </li>
+  </ul>
+<% end %>
