@@ -3,12 +3,12 @@ class SearchController < ApplicationController
   layout 'search'
 
   def search
-    if params[:q] && params[:q] != ''
+    if params[:query] && params[:query] != ''
       client = Swiftype::Client.new
 
       @facets_selected = params[:facet] || []
 
-      @results = client.search(ENV['SWIFTYPE_ENGINE_SLUG'], params[:q], {
+      @results = client.search(ENV['SWIFTYPE_ENGINE_SLUG'], params[:query], {
         :per_page => '10',
         :filters => {'page' => {:type => @facets_selected}},
         :page => params[:page] || 1,

@@ -10,8 +10,8 @@ module ApplicationHelper
   def pagination_url(page)
     query = {}
 
-    if params[:q] && params[:q] != ''
-      query['q'] = params[:q]
+    if params[:query] && params[:query] != ''
+      query['q'] = params[:query]
     end
 
     if params[:facet] && params[:facet] != ''
