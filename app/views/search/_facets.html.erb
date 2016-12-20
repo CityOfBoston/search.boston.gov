@@ -9,4 +9,27 @@
     <% end %>
   <% end %>
 </div>
-<button class="btn">Apply</button>
+<% if @facets.count > 1 %>
+  <button type="submit" class="btn">Apply</button>
+<% end %>
+<% if @facets_selected.count > 0 %>
+  <button id="resetForm" type="reset" class="btn btn--c btn--r" style="display: none">Reset</button>
+<% end %>
+
+<script type="text/javascript">
+  var reset_button = document.getElementById('resetForm');
+
+  reset_button.style.display = 'inline-block';
+
+  reset_button.addEventListener('click', function (e) {
+    e.preventDefault()
+
+    var checks = document.querySelectorAll('input.cb-f');
+
+    for (var i = 0; i < checks.length; i++) {
+      checks[i].checked = false;
+    }
+
+    document.getElementById('searchForm').submit();
+  });
+</script>

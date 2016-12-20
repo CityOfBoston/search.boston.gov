@@ -17,12 +17,12 @@ module CobSearch
       'department_profile' => 'Departments',
       'documents' => 'Documents',
       'event' => 'Events',
-      'how_to' => 'How To',
+      'how_to' => 'How-Tos',
       'post' => 'News',
-      'person_profile' => 'Person',
-      'program_initiative_profile' => 'Program/Initiative',
-      'public_notice' => 'Public Notice',
-      'topic_page' => 'Topic',
+      'person_profile' => 'People',
+      'program_initiative_profile' => 'Programs',
+      'public_notice' => 'Public Notices',
+      'topic_page' => 'Topics',
     }
   end
 end
