@@ -11,7 +11,7 @@ module ApplicationHelper
     query = {}
 
     if params[:query] && params[:query] != ''
-      query['q'] = params[:query]
+      query['query'] = params[:query]
     end
 
     if params[:facet] && params[:facet] != ''
