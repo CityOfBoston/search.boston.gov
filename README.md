@@ -28,8 +28,11 @@ This project is in the worldwide [public domain](LICENSE.md). As stated in [LICE
 >
 > All contributions to this project will be released under the CC0 dedication. By submitting a pull request, you are agreeing to comply with this waiver of copyright interest.
 
-#### Use the templates
+## Contributions
 
-* [Suggest a feature](https://github.com/CityOfBoston/boston.gov/blob/develop/guides/03-contributing-to-boston.gov.md#feature-template)
-* [Report a bug](https://github.com/CityOfBoston/boston.gov/blob/develop/guides/03-contributing-to-boston.gov.md#bug-report-template)
-* [Submit a pull request](https://github.com/CityOfBoston/boston.gov/blob/develop/guides/03-contributing-to-boston.gov.md#pull-request-template)
+If you're interested in helping this project, there are three ways to help. Be sure to checkout our [Guide to Contributing](https://github.com/CityOfBoston/boston.gov/blob/develop/guides/03-contributing-to-boston.gov.md).
+
+* [Report issues on Boston.gov](https://github.com/CityOfBoston/boston.gov/blob/develop/guides/03-contributing-to-boston.gov.md#reporting-bugs)
+* [Suggest new features](https://github.com/CityOfBoston/boston.gov/blob/develop/guides/03-contributing-to-boston.gov.md#suggest-new-features)
+* [Contributing to development](https://github.com/CityOfBoston/boston.gov/blob/develop/guides/03-contributing-to-boston.gov.md#contributing-to-development)
+
