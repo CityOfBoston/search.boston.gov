@@ -22,7 +22,7 @@ module CobSearch
       'person_profile' => 'People',
       'program_initiative_profile' => 'Programs',
       'public_notice' => 'Public Notices',
-      'topic_page' => 'Topics',
+      'topic_page' => 'Guides',
     }
   end
 end
