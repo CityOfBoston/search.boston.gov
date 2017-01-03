@@ -4,7 +4,7 @@
       <div class="sf">
         <%= label_tag(:q, @results ? "Search results:" : "Search:", class: 'sf-l') %>
         <div class="sf-i">
-          <%= text_field_tag(:query, params[:query], class: 'sf-i-f') %>
+          <%= text_field_tag(:query, params[:query], class: 'sf-i-f', autofocus: (params[:query] && params[:query]) != '' ? false : true) %>
           <button class="sf-i-b">Search</button>
         </div>
       </div>
