@@ -32,6 +32,7 @@ gem 'swiftype'
 # Let's use foreman
 gem 'foreman'
 gem 'pg'
+gem 'redis'
 
 # Some background tasks
 gem 'sidekiq'
