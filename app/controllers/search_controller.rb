@@ -12,8 +12,9 @@ class SearchController < ApplicationController
         :per_page => '10',
         :filters => {'page' => {:type => @facets_selected}},
         :page => params[:page] || 1,
-        :facets => {'page' => ['type']}}
-      )
+        :facets => {'page' => ['type']},
+        :fetch_fields => {'page' => ['url', 'title', 'type']}
+      })
 
       @facets = @results.info['page']['facets']['type']
 

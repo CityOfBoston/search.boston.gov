@@ -10,7 +10,7 @@
   <ul class="g--m0 g--p0">
     <% @post_results.each do |post_result| %>
       <li class="n-li">
-        <%= link_to post_result['url'], class: 'n-li-b n-li-b--r n-li-b--fw n-li--in g g--mt0' do %>
+        <%= link_to get_click_url(post_result), class: 'n-li-b n-li-b--r n-li-b--fw n-li--in g g--mt0' do %>
           <div class="n-li-t g--8"><%= sanitize(post_result['title']) %></div>
           <% if post_result['type'] && post_result['type'] != '' %>
             <div class="n-li-ty n-li-ty--r g--44"><%= type(post_result['type']).singularize %></div>
