@@ -26,7 +26,6 @@ module ApplicationHelper
   end
 
   def get_click_url(result)
-
-    return click_url(:id => result['id'], :url => result['url'])
+    return click_url(:id => result['id'], :url => result['url'], :query => params[:query])
   end
 end
