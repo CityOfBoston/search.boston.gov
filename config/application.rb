@@ -24,5 +24,7 @@ module CobSearch
       'public_notice' => 'Public Notices',
       'topic_page' => 'Guides',
     }
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end
