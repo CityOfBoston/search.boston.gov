@@ -24,4 +24,8 @@ module ApplicationHelper
 
     return request.base_url + '?' + query.to_query
   end
+
+  def get_click_url(result)
+    return click_url(:id => result['id'], :url => result['url'], :query => params[:query])
+  end
 end
