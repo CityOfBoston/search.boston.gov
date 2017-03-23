@@ -2,7 +2,7 @@ language: ruby
 dist: trusty
 group: edge
 rvm:
-- 2.2.2
+- 2.4.0
 
 deploy:
   provider: heroku
