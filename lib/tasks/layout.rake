@@ -7,14 +7,21 @@ namespace :layout do
     require 'open-uri'
 
     begin
+      # Clear the rails cache
+      Rails.cache.clear
+
       # Get the layout file
       download = open(ENV['LAYOUT_PATH'])
+
+      template = File.read(download)
+      template.gsub! '{{yield}}', '<%= yield %>'
+      template.gsub! '{{ title }}', 'Boston.gov'
 
       # Overwrite the layout
       layout = Template.find_or_create_by(path: 'layouts/search')
 
       # Set layout props
-      layout.body = File.read(download)
+      layout.body = template
       layout.locale = 'en'
 
       # Save the layout
