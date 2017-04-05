@@ -1,7 +1,8 @@
 language: ruby
-env: TRAVIS_CI=true
-ruby:
-  - "2.4.0"
+dist: trusty
+group: edge
+rvm:
+- 2.4.0
 
 deploy:
   provider: heroku
