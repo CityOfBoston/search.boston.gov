@@ -7,7 +7,7 @@
       <li>try fewer words.</li>
     </ul>
 <% else %>
-  <ul class="g--m0 g--p0">
+  <ul style="margin: 0; padding: 0">
     <% @post_results.each do |post_result| %>
       <li class="n-li">
         <%= link_to get_click_url(post_result), class: 'n-li-b n-li-b--r n-li-b--fw n-li--in g g--mt0' do %>
